@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>PhoneBook</title>
+</head>
+<body>
+    <section class="delete-modal hidden">
+      <button class="close-modal">&times;</button>
+        <h2>Deregistration Notification!</h2>
+        <p>Record Will Be Permanently Deleted</p>
+        <div class="buttons">
+            <button type="submit" class="modal-delete">Delete</button>
+            <button type="submit" class="modal-cancel">Cancel</button>
+        </div>
+    </section>
+    <section class="overlay hidden"></section>
+    <main>
+        <fieldset>
+            <legend><h1>Phonebook</h1></legend>
+            <form>
+                <div class="form-name"><label for="name">Name</label><input type="text" placeholder="Firstname" id="name" required="required"></div>
+                <div class="form-surname"><label for="surname">Surname</label><input type="text" placeholder="Lastname" id="surname" required="required"></div>
+                <div class="form-phone"><label for="phone">Phone</label><input type="number" placeholder="Phone Number" id="phone" required="required"></div>
+                <div class="form-email"><label for="email">Email</label><input type="email" placeholder="Email address" id="email" required="required"></div>     
+                <div class="form-button"><button class="butt cancel">Cancel</button><button class="butt updateBtn">Update</button><button type="submit" class="butt submit">Create</button></div>                     
+            </form>
+            <div class="notification"><p>Fill Correctly!</p> <div class="underline"></div></div>
+        </fieldset>
+
+        <table border="1" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Functions</th>
+                </tr>
+            </thead>    
+            <tbody class="tbody">
+                <!-- All datas appear here -->
+            </tbody>
+        </table>
+    </main>
+
+
+
+    <script src="./index.js"></script>
+</body>
+</html>

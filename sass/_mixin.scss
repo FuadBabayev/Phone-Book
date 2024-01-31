@@ -1,0 +1,34 @@
+@mixin flex-justify {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-start-justify {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+@mixin button{
+    border-bottom: 1px solid $dark;
+    border-right: 1px solid $dark;
+    box-shadow: 2px 2px 2px $dark;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font: 500 16px/1 $bold;
+    color: white;
+}

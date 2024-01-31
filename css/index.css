@@ -1,0 +1,336 @@
+@font-face {
+  font-family: "Roboto Thin";
+  src: url(../assets/Roboto-Thin.ttf) format(truetype);
+}
+@font-face {
+  font-family: "Roboto Medium";
+  src: url(../assets/Roboto-Medium.ttf) format(truetype);
+}
+@font-face {
+  font-family: "Roboto Regular";
+  src: url(../assets/Roboto-Regular.ttf) format(truetype);
+}
+@font-face {
+  font-family: "Roboto Bold";
+  src: url(../assets/Roboto-Bold.ttf) format(truetype);
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, caption,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+body {
+  background-color: aliceblue;
+  height: 100vh;
+  font-family: "Roboto Regular";
+  overflow: hidden;
+}
+body main {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 100px 0;
+  gap: 2%;
+}
+body main fieldset {
+  width: 30%;
+  height: 50%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid black;
+  position: relative;
+}
+body main fieldset legend {
+  margin-left: 10%;
+  font-size: 1.9vw;
+  font-family: "Roboto Bold";
+}
+body main fieldset form {
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body main fieldset form div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body main fieldset form div:nth-last-child(1) {
+  justify-content: flex-end;
+}
+body main fieldset form button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+body main fieldset form label {
+  font: 500 1.3vw/1 "Roboto Bold";
+}
+body main fieldset form input {
+  width: 65%;
+  height: 30px;
+  padding-left: 20px;
+  border: 3px solid black;
+  font: 500 14px/1 "Roboto Medium";
+}
+body main fieldset form input::placeholder {
+  font-size: 0.95vw;
+  font-family: "Roboto Regular";
+}
+body main fieldset form input[type=number]::-webkit-outer-spin-button,
+body main fieldset form input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body main fieldset form .form-button {
+  display: flex;
+  gap: 15px;
+}
+body main fieldset form .form-button button {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  box-shadow: 2px 2px 2px black;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font: 500 16px/1 "Roboto Bold";
+  color: white;
+  transition: 50ms;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main fieldset form .form-button button:active {
+  transform: translateY(3px);
+}
+body main fieldset form .form-button .submit {
+  background-color: green;
+}
+body main fieldset form .form-button .cancel {
+  background-color: red;
+  display: none;
+}
+body main fieldset form .form-button .updateBtn {
+  background-color: deepskyblue;
+  display: none;
+}
+body main fieldset .notification {
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 40%;
+  height: 18%;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.2s;
+  z-index: -1;
+}
+body main fieldset .notification p {
+  font: 400 1.2vw/1 "Roboto Regular";
+  text-align: center;
+  padding-top: 10px;
+}
+body main fieldset .notification .underline {
+  width: 103%;
+  height: 7px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: gray;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 3.78s;
+  transition-timing-function: linear;
+}
+body main table {
+  width: 70%;
+  text-align: left;
+}
+body main table th {
+  background-color: gray;
+  font-size: 1.3vw;
+  font-weight: 700;
+  padding-left: 1%;
+  height: 7vh;
+}
+body main table th:nth-child(1), body main table th:nth-child(2), body main table th:nth-child(3) {
+  width: 17%;
+}
+body main table th:nth-child(4) {
+  width: 29%;
+}
+body main table th:nth-child(5) {
+  width: 20%;
+}
+body main table td {
+  padding-left: 1%;
+  height: 6vh;
+  font-size: 1.1vw;
+}
+body .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+body .delete-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 35%;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+body .delete-modal h2 {
+  font: 700 26px/1.5 "Roboto Regular";
+}
+body .delete-modal p {
+  color: red;
+  font: 500 17px/0.5 "Roboto Bold";
+}
+body .delete-modal .close-modal {
+  border: none;
+  background: none;
+  outline: none;
+  box-shadow: none;
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  cursor: pointer;
+}
+body .delete-modal .buttons {
+  width: 70%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+}
+body .delete-modal .buttons button {
+  width: 35%;
+  height: 45%;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  box-shadow: 2px 2px 2px black;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font: 500 16px/1 "Roboto Bold";
+  color: white;
+  font: 500 16px/1 "Roboto Bold";
+  transition: 50ms;
+}
+body .delete-modal .buttons button:active {
+  transform: translateY(3px);
+}
+body .delete-modal .buttons .modal-delete {
+  background-color: red;
+}
+body .delete-modal .buttons .modal-cancel {
+  background-color: deepskyblue;
+}
+body .hidden {
+  display: none;
+}
+
+.btn {
+  border: none;
+  width: 43%;
+  height: 4vh;
+  color: white;
+  font-size: 1vw;
+  cursor: pointer;
+}
+.btn.update {
+  background-color: orange;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  box-shadow: 2px 2px 2px black;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font: 500 16px/1 "Roboto Bold";
+  color: white;
+  font-size: 1.1vw;
+}
+.btn.update:active {
+  transform: translateY(3px);
+}
+.btn.delete {
+  background-color: red;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  box-shadow: 2px 2px 2px black;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font: 500 16px/1 "Roboto Bold";
+  color: white;
+  font-size: 1.1vw;
+}
+.btn.delete:active {
+  transform: translateY(3px);
+}

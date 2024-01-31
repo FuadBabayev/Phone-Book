@@ -1,0 +1,282 @@
+body {
+    background-color: $bodyBackground;
+    height: 100vh;
+    font-family: $regular;
+    overflow: hidden;
+
+    main {
+        width: 90%;
+        margin: 0 auto;
+        @include flex-start-justify;
+        padding: 100px 0;
+        gap: 2%;
+
+        fieldset {
+            width: 30%;
+            height: 50%;
+            border-radius: 5px;
+            @include flex-center;
+            border: 3px solid $dark;
+            position: relative;
+
+            legend {
+                margin-left: 10%;
+                font-size: 1.9vw;
+                font-family: $bold;
+            }
+
+            form {
+                width: 80%;
+                margin: 30px auto;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                div {
+                    @include flex-justify;
+
+                    &:nth-last-child(1) {
+                        justify-content: flex-end;
+                    }
+                }
+
+                button {
+                    @include flex-end;
+                }
+
+                label {
+                    font: 500 1.3vw/1 $bold;
+                }
+
+                input {
+                    width: 65%;
+                    height: 30px;
+                    padding-left: 20px;
+                    border: 3px solid $dark;
+                    font: 500 14px/1 $medium;
+
+                    &::placeholder {
+                        font-size: 0.95vw;
+                        font-family: $regular;
+                    }
+                }
+
+                input[type=number]::-webkit-outer-spin-button,
+                input[type=number]::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                .form-button {
+                    display: flex;
+                    gap: 15px;
+
+                    button {
+                        @include button;
+                        transition: 50ms;
+                        width: 90px;
+                        height: 30px;
+                        @include flex-center;
+
+                        &:active {
+                            transform: translateY(3px);
+                        }
+                    }
+
+                    .submit {
+                        background-color: $success;
+                    }
+
+                    .cancel {
+                        background-color: $danger;
+                        display: none;
+                    }
+
+                    .updateBtn {
+                        background-color: $primary;
+                        display: none;
+                    }
+                }
+            }
+
+            .notification {
+                border: 2px solid $dark;
+                border-radius: 5px;
+                width: 40%;
+                height: 18%;
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                opacity: 0;
+                overflow: hidden;
+                transition: 0.2s;
+                z-index: -1;
+
+                p {
+                    font: 400 1.2vw/1 $regular;
+                    text-align: center;
+                    padding-top: 10px;
+                }
+
+                .underline {
+                    width: 103%;
+                    height: 7px;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    background-color: $secondary;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    transition: 3.78s;
+                    transition-timing-function: linear;
+                }
+            }
+
+        }
+
+        table {
+            width: 70%;
+            text-align: left;
+
+            th {
+                background-color: $secondary;
+                font-size: 1.3vw;
+                font-weight: 700;
+                padding-left: 1%;
+                height: 7vh;
+
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3) {
+                    width: 17%;
+                }
+
+                &:nth-child(4) {
+                    width: 29%;
+                }
+
+                &:nth-child(5) {
+                    width: 20%;
+                }
+            }
+
+            td {
+                padding-left: 1%;
+                height: 6vh;
+                font-size: 1.1vw;
+            }
+        }
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(3px);
+        z-index: 5;
+    }
+
+    .delete-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30%;
+        height: 35%;
+        background-color: $light;
+        border-radius: 5px;
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+        z-index: 10;
+        @include flex-center;
+        flex-direction: column;
+        gap: 15px;
+
+        h2 {
+            font: 700 26px/1.5 $regular;
+
+        }
+
+        p {
+            color: red;
+            font: 500 17px/0.5 $bold;
+        }
+
+        .close-modal {
+            border: none;
+            background: none;
+            outline: none;
+            box-shadow: none;
+            font-size: 40px;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            cursor: pointer;
+
+        }
+
+        .buttons {
+            width: 70%;
+            height: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 30px;
+
+            button {
+                width: 35%;
+                height: 45%;
+                @include button;
+                font: 500 16px/1 $bold;
+                transition: 50ms;
+
+                &:active {
+                    transform: translateY(3px);
+                }
+            }
+
+            .modal-delete {
+                background-color: red;
+            }
+
+            .modal-cancel {
+                background-color: deepskyblue;
+            }
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+}
+
+.btn {
+    border: none;
+    width: 43%;
+    height: 4vh;
+    color: white;
+    font-size: 1vw;
+    cursor: pointer;
+
+    &.update {
+        background-color: orange;
+        @include button;
+        font-size: 1.1vw;
+
+        &:active {
+            transform: translateY(3px);
+        }
+    }
+
+    &.delete {
+        background-color: red;
+        @include button;
+        font-size: 1.1vw;
+
+        &:active {
+            transform: translateY(3px);
+        }
+    }
+}

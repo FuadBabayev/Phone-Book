@@ -1,0 +1,32 @@
+$bodyBackground: aliceblue;
+$theadBackground: rgb(204,204,204);
+$light : white;
+$dark : black;
+$success : green;
+$warning : orange;
+$danger : red;
+$primary : deepskyblue;
+$secondary : gray;
+
+
+@font-face {
+    font-family: 'Roboto Thin';
+    src: url(../assets/Roboto-Thin.ttf) format(truetype);
+}
+@font-face {
+    font-family: 'Roboto Medium';
+    src: url(../assets/Roboto-Medium.ttf) format(truetype);
+}
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url(../assets/Roboto-Regular.ttf) format(truetype);
+}
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url(../assets/Roboto-Bold.ttf) format(truetype);
+}
+
+$thin : 'Roboto Thin';
+$medium : 'Roboto Medium';
+$regular : 'Roboto Regular';
+$bold : 'Roboto Bold';
