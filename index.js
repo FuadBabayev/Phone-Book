@@ -19,47 +19,69 @@ const BASE_URL = 'http://localhost:3000/persons';
 
 
 const openModal = function () {
+
     modal.classList.remove('hidden');
     overlay.classList.remove('hidden');
 }
+
+
 const closeModal = function () {
+
     modal.classList.add('hidden');
     overlay.classList.add('hidden');
 }
+
 overlay.addEventListener('click', closeModal);
+
 closeButtonModal.addEventListener('click', closeModal);
+
 cancelButtonModal.addEventListener('click', closeModal);
+
+
 document.addEventListener('keydown', (e) => {
+
     if (e.key === "Escape" && !modal.classList.contains('hidden') && !overlay.classList.contains('hidden')) {
         closeModal();
     }
+
 });
 
+
 const notificationPart = function () {
+
     notification.style.opacity = 1;
     underline.style.width = '0%';
+
     setTimeout(() => {
         notification.style.opacity = 0;
         underline.style.width = '100%';
     }, 4000);
+
 }
 
+
 const resetInput = function(){
+
     firstname.value = lastname.value = email.value = phone.value = '';
 }
 
 
 const deleteData = async function (id) {
+
     fetch(`${BASE_URL}/${id}`, {
         method: "DELETE",
     })
 }
 
+
 const setData = async function () {
+
     const data = await fetch(BASE_URL);
     const persons = await data.json();
+
     let section = '';
     persons.forEach(person => {
+
         section += `
         <tr>
             <td>${person.firstname}</td>
@@ -72,8 +94,11 @@ const setData = async function () {
             </td>
         </tr>`;
     });
+
     tbody.insertAdjacentHTML('beforeend', section);
+
     Array.from(document.querySelectorAll('.btn.delete')).forEach(deleteButtons => {
+
         deleteButtons.addEventListener('click', function () {
             // deleteData(this.id);
             openModal();
@@ -82,10 +107,11 @@ const setData = async function () {
             modaldelete.addEventListener('click', function () {
                 deleteData(this.id);
             })
-
         })
     })
+
     Array.from(document.querySelectorAll('.btn.update')).forEach(updateButtons => {
+
         updateButtons.addEventListener('click', function () {
             // console.log(this.id);
             submitButton.style.display = 'none';
@@ -105,16 +131,19 @@ const setData = async function () {
                     email.value = persons.email;
                     phone.value = persons.phone;
                 });
+
             // console.log(`${BASE_URL}/${this.id}`);
             // updateBtn.id = this.id;
             // modaldelete.id = this.id;
         })
     })
 }
+
 setData();
 
 
 const getData = async function () {
+
     if (firstname.value.trim().length > 0 && lastname.value.trim().length > 0 && phone.value.trim().length > 0 && email.value.includes('@')) {
         const newData = {
             firstname: firstname.value.trim(),
@@ -122,6 +151,7 @@ const getData = async function () {
             phone: phone.value.trim(),
             email: email.value.trim(),
         }
+
         fetch(BASE_URL, {
             method: "POST",
             headers: {
@@ -129,7 +159,8 @@ const getData = async function () {
             },
             body: JSON.stringify(newData),
         })
-    } else {
+    }
+    else {
         notificationPart();
     }
 }
@@ -142,6 +173,7 @@ const getData = async function () {
 
 
 const updateData = async function (id) {
+
     if (firstname.value.trim().length > 0 && lastname.value.trim().length > 0 && phone.value.trim().length > 0 && email.value.includes('@')) {
         const updatedData = {
             firstname: firstname.value.trim(),
@@ -149,6 +181,7 @@ const updateData = async function (id) {
             phone: phone.value.trim(),
             email: email.value.trim(),
         }
+
         fetch(`${BASE_URL}/${id}`, {
             method: "PUT",
             headers: {
@@ -156,7 +189,8 @@ const updateData = async function (id) {
             },
             body: JSON.stringify(updatedData),
         })
-    } else {
+    }
+    else {
         notificationPart();
     }
 }
@@ -175,6 +209,7 @@ updateCancel.addEventListener('click', function(e){
     updateCancel.style.display = 'none';
     resetInput();
 })
+
 
 updateBtn.addEventListener('click', function(e){
     e.preventDefault();
